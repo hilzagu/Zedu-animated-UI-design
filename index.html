@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zedu – Built for Bootcamps and Learning Communities</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--p:#6c3cf5;--pd:#3b2a8f;--ink:#16141c;--mut:#4a4a55;--nav:#2f2a6b;--rail:#4a45a8;--side:#4f4bb5;--font:'Lato',system-ui,-apple-system,'Segoe UI',Arial,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--font);color:var(--ink);background:linear-gradient(#fff 0,#fff 880px,#f3f0ff 1080px);min-height:100vh;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--p);outline-offset:3px}
+header{height:79px;border-bottom:1px solid #e8e8ee;background:#fff;position:sticky;top:0;z-index:20}
+.bar{max-width:1240px;margin:0 auto;height:100%;padding:0 36px;display:flex;align-items:center}
+.logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:24px;padding-right:32px;border-right:1px solid #e3e3ea;height:28px}
+nav{display:flex;gap:36px;margin-left:36px;font-size:15.5px;font-weight:500;flex:1}
+nav a{display:flex;align-items:center;gap:7px}
+nav svg{width:11px}
+.btn{display:inline-flex;align-items:center;gap:12px;border-radius:999px;font:500 16px var(--font);padding:15px 26px;border:1.5px solid var(--p);cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px -8px rgba(108,60,245,.6)}
+.btn.fill{background:var(--p);color:#fff}
+.btn.line{background:transparent;color:var(--pd);margin-right:12px}
+.arrow{width:26px;height:26px;border-radius:50%;background:#fff;color:var(--p);display:grid;place-items:center;font-size:16px;font-weight:900;line-height:1}
+.hero{text-align:center;padding:72px 24px 0}
+h1{font-size:clamp(34px,5vw,52px);font-weight:700;letter-spacing:-.025em;line-height:1.15}
+h1 span{color:var(--p)}
+.sub{max-width:580px;margin:34px auto 38px;font-size:17.5px;line-height:1.6;color:var(--mut)}
+.ctas{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.ctas .btn.line{margin:0;padding:15px 24px}
+.rate{margin-top:36px;font-size:14px;color:#555;display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap}
+.stars{color:#f5c518;font-size:17px;letter-spacing:1px}
+.rate i{width:1px;height:14px;background:#aaa;margin:0 4px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);max-width:800px;margin:60px auto 0;gap:20px}
+.stats b{display:block;font-size:32px;font-weight:700;letter-spacing:-.02em}
+.stats span{font-size:14.5px;color:#555}
+/* product mockup */
+.shot{position:relative;max-width:700px;margin:80px auto 0;padding:0 12px}
+.win{background:#fff;border:3px solid var(--nav);border-bottom:0;border-radius:14px 14px 0 0;height:620px;overflow:hidden;display:grid;grid-template-columns:60px 162px 1fr;grid-template-rows:36px 1fr;position:relative;box-shadow:0 30px 70px -30px rgba(47,42,107,.5)}
+.top{grid-column:1/-1;background:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:0 8px;color:#fff;font-size:8.5px}
+.pill{background:#5b57c4;border-radius:6px;padding:5px 9px}
+.srch{border:1px solid #8c88e8;border-radius:6px;background:#3d3890;padding:5px 30px;width:190px;text-align:left}
+.cred{background:#fff;color:#222;border-radius:5px;padding:5px 8px}
+.rail{background:var(--rail);display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:12px;color:#fff;font-size:7.5px}
+.rail div{text-align:center;opacity:.9}
+.rail div:before{content:"";display:block;width:12px;height:12px;border:2px solid #fff;border-radius:4px;margin:0 auto 4px}
+.rail .on:before{background:#fff}
+.rail .on{background:#6b5de3;border-radius:7px;padding:5px 4px}
+.side{background:var(--side);color:#fff;padding:14px 0}
+.side h4{font-size:12.5px;font-weight:500;padding:6px 14px 12px}
+.side a{display:block;padding:9px 14px 9px 34px;font-size:10px;position:relative;opacity:.95}
+.side a:before{content:"";position:absolute;left:14px;top:50%;width:9px;height:8px;margin-top:-4px;border:1.5px solid #fff;border-radius:2px}
+.side a.on{background:#6359d6;opacity:1}
+.main{padding:42px 28px 0 62px;position:relative;text-align:center}
+.main h3{font-size:15px;font-weight:500;line-height:1.35;margin:0 auto;max-width:300px}
+.main p{font-size:9.5px;color:#555;margin-top:6px}
+.mrow{display:flex;gap:10px;margin-top:12px;font-size:9.5px;text-align:left}
+.mrow .nb{background:#5b50d8;color:#fff;border-radius:4px;padding:8px 12px}
+.mrow .in{flex:1;border:1px solid #d6d6dc;border-radius:4px;padding:8px 12px;color:#888}
+.ill{display:block;margin:34px auto 0;width:310px}
+/* phone */
+.phone{position:absolute;right:-150px;top:44px;width:228px;height:560px;background:#f4efff;border:2px solid #8f73f3;border-radius:24px;overflow:hidden;box-shadow:-18px 20px 40px -20px rgba(80,60,160,.4)}
+.ph{background:#d8cffa;padding:10px 10px;display:flex;align-items:center;gap:7px;font-size:9px}
+.ph .av{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#caa27a,#7a5a40)}
+.ph small{display:block;color:#6a6a78;font-size:7.5px}
+.ph .bk{background:#7a4cf0;color:#fff;border-radius:50%;width:14px;height:14px;display:grid;place-items:center;font-size:7px}
+.msgs{padding:12px 10px;display:flex;flex-direction:column;gap:9px;font-size:9px;color:#222}
+.day{align-self:center;background:#fff;border-radius:10px;padding:2px 14px;font-size:7.5px}
+.m{max-width:88%;padding:8px 10px;border-radius:9px;background:#fff;line-height:1.35;position:relative}
+.m em{display:block;text-align:right;font-style:normal;font-size:7px;color:#888;margin-top:3px}
+.m.me{align-self:flex-end;background:#e9e2ff}
+.m.rp{background:#e6e3ee;border-left:3px solid #6c3cf5;font-size:8px}
+.m.rp b{color:#6c3cf5;display:block}
+.m.rp.tail{background:#e9e2ff}
+.in2{position:absolute;bottom:0;left:0;right:0;background:#fff;padding:10px;display:flex;gap:8px;align-items:center;font-size:12px}
+.in2 span{flex:1;height:22px;border-radius:11px;background:#f1eef8}
+.fade{position:absolute;left:0;right:0;bottom:0;height:140px;background:linear-gradient(transparent,#f3f0ff);pointer-events:none}
+.feat{max-width:760px;margin:36px auto 0;padding:0 24px 90px;display:grid;grid-template-columns:1fr 1fr;gap:24px;text-align:center}
+.fc{background:#fff;border:1px solid #e6e1fb;border-radius:24px;padding:28px 24px 30px;box-shadow:0 20px 40px -28px rgba(80,60,160,.35)}
+.fc svg{width:190px;height:150px;overflow:visible}
+.fc h3{font-size:20px;font-weight:700;margin-top:10px}
+.fc p{font-size:15px;color:var(--mut);margin-top:6px}
+.fc *{transform-box:fill-box;transform-origin:center}
+.w{mix-blend-mode:multiply;opacity:.8}
+.w1{animation:w1 3.2s ease-in-out infinite}.w2{animation:w2 2.6s ease-in-out infinite}.w3{animation:w3 3.8s ease-in-out infinite}
+@keyframes w1{0%,100%{transform:scale(1,.9)}50%{transform:scale(.85,.3)}}
+@keyframes w2{0%,100%{transform:scale(.8,.35)}50%{transform:scale(1,.85)}}
+@keyframes w3{0%,100%{transform:scale(1,.3)}50%{transform:scale(.75,.7)}}
+.pl{animation:fly 3.4s ease-in-out infinite}
+@keyframes fly{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(5deg)}}
+.cl{animation:drift 5s ease-in-out infinite}.c2{animation-delay:-2.5s}
+@keyframes drift{0%{transform:translateX(26px);opacity:0}50%{opacity:1}100%{transform:translateX(-26px);opacity:0}}
+@media(max-width:600px){.feat{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.fc *{animation:none!important}}
+.fc svg.call{width:min(100%,280px);height:auto}
+.orb{animation:spinp 6s linear infinite}
+@keyframes spinp{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(1.06)}100%{transform:rotate(360deg) scale(1)}}
+.sq{animation:sqp 1.6s ease-in-out infinite}
+@keyframes sqp{50%{transform:scale(.8)}}
+.ring{animation:rg 2.4s ease-out infinite}
+@keyframes rg{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.5);opacity:0}}
+.act{opacity:0;animation:ac 8s linear infinite backwards}
+@keyframes ac{0%{opacity:0}2%,12%{opacity:1}14%,100%{opacity:0}}
+.turn{animation:tn 5s ease-in-out infinite}
+@keyframes tn{0%,100%{transform:translateX(0) rotate(0)}30%{transform:translateX(-5px) rotate(-8deg)}70%{transform:translateX(5px) rotate(8deg)}}
+.leaf{transform-origin:50% 100%;animation:lf 4s ease-in-out infinite}
+@keyframes lf{50%{transform:rotate(4deg)}}
+.ill *{transform-box:fill-box}
+.ill .o_hl{opacity:0;animation:o_hl 8s linear infinite backwards}
+@keyframes o_hl{0%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}
+.ill .o_bar{transform-origin:50% 100%;animation:o_bar .6s ease-in-out infinite alternate}
+@keyframes o_bar{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+.ill .o_fw{animation:o_fw 1.2s linear infinite}
+@keyframes o_fw{to{stroke-dashoffset:-6}}
+.ill .o_fl{animation:o_fl 4s ease-in-out infinite}
+@keyframes o_fl{50%{transform:translateY(-4px)}}
+.ill .o_b1{transform-origin:0 100%;animation:o_b1 5s ease-out infinite}
+@keyframes o_b1{0%{opacity:0;transform:scale(0)}8%{opacity:1;transform:scale(1.1)}12%,70%{opacity:1;transform:scale(1)}80%,100%{opacity:0;transform:scale(0)}}
+.ill .o_dt circle{animation:o_dt .8s ease-in-out infinite}
+.ill .o_dt circle:nth-child(2){animation-delay:.15s}.ill .o_dt circle:nth-child(3){animation-delay:.3s}
+@keyframes o_dt{50%{opacity:.35}}
+.ill .o_up{opacity:0;animation:o_up 3s ease-out infinite}
+@keyframes o_up{0%{opacity:0;transform:translateY(0) scale(.6)}15%{opacity:1}100%{opacity:0;transform:translateY(-34px) scale(1.1)}}
+.ill .o_jn{animation:o_jn 2.4s ease-in-out infinite}
+@keyframes o_jn{50%{transform:scale(1.05)}}
+.ill .o_ring{animation:o_rg 2.4s ease-out infinite}
+@keyframes o_rg{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.3,1.5);opacity:0}}
+.ill .o_ok{animation:o_ok 2s ease-in-out infinite}
+@keyframes o_ok{50%{transform:scale(1.25)}}
+@media(prefers-reduced-motion:reduce){.ill *{animation:none!important}.ill .o_hl,.ill .o_up,.ill .o_ring{opacity:0}}
+@media(max-width:900px){nav,.btn.line.hd{display:none}.bar{justify-content:space-between}.logo{border:0}.phone{display:none}.win{grid-template-columns:50px 1fr}.side{display:none}.main{padding:36px 18px}.ill{width:100%}.stats{grid-template-columns:1fr}.shot{margin-top:48px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="logo" href="#" aria-label="Zedu home">
+      <svg width="30" height="32" viewBox="0 0 30 32"><path d="M15 1c7.5 0 13 5 13 12 0 6.200-4 10.500-10 11.500L13 31v-6C6 24 2 19.500 2 13 2 6 7.500 1 15 1z" fill="#6c3cf5"/><path d="M16.500 6l-6 10h4l-1.500 8 6.500-11h-4z" fill="#fff"/></svg>
+      Zedu
+    </a>
+    <nav aria-label="Main">
+      <a href="#">Products <svg viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.800"/></svg></a>
+      <a href="#">Solutions <svg viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.800"/></svg></a>
+      <a href="#">Resources</a><a href="#">Pricing</a><a href="#">About Us</a><a href="#">Download</a>
+    </nav>
+    <a class="btn line hd" href="#">Contact Sales</a>
+    <a class="btn fill" href="#">Go to Dashboard</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Built for Bootcamps and <span>Learning</span> Communities</h1>
+    <p class="sub">Bring learners and educators together with organized conversations, seamless cohort collaboration, and affordable communication tools built for learning communities.</p>
+    <div class="ctas">
+      <a class="btn fill" href="#">Go to Dashboard <span class="arrow">→</span></a>
+      <a class="btn line" href="#">Contact sales</a>
+    </div>
+    <div class="rate"><span class="stars" aria-hidden="true">★★★★★</span> 4.9 <i></i> Trusted by most modern educators and learners worldwide</div>
+    <div class="stats">
+      <div><b>10,000+</b><span>Learners supported</span></div>
+      <div><b>15,000+</b><span>Conversations powered by AI</span></div>
+      <div><b>98%</b><span>Educator satisfaction</span></div>
+    </div>
+
+    <div class="shot" aria-label="Zedu app preview">
+      <div class="win">
+        <div class="top"><span class="pill">Lerouge.M.. ⌄</span><span class="pill srch">Search contacts</span><span class="cred"><b>483</b> AI Credits</span></div>
+        <div class="rail"><div>Home</div><div>DMs</div><div>People</div><div>Files</div><div class="on">Buzz</div></div>
+        <div class="side">
+          <h4>General Buzz ⌄</h4>
+          <a class="on" href="#">Meeting</a><a href="#">Events</a><a href="#">Whiteboards</a><a href="#">Notes</a><a href="#">Settings</a><a href="#">Privacy</a>
+        </div>
+        <div class="main">
+          <h3>Seamless video calls and meetings for every learning community.</h3>
+          <p>Connect classrooms, cohorts, and teams in one shared space</p>
+          <div class="mrow"><span class="nb">New meeting</span><span class="in">Enter a code or link</span></div>
+          <svg class="ill" viewBox="0 0 310 218" role="img" aria-label="Animated illustration of a video meeting with attendees, chat and reactions">
+            <ellipse cx="155" cy="108" rx="125" ry="98" fill="#e7e4f7"/>
+            <g fill="none" stroke="#2f2a6b" stroke-width="1.200" stroke-dasharray="3 3"><path class="o_fw" d="M58 58H75"/><path class="o_fw" d="M54 116H75"/><path class="o_fw" d="M235 58H254"/><path class="o_fw" d="M235 112H258"/></g>
+            <!-- laptop -->
+            <rect x="75" y="40" width="160" height="104" rx="8" fill="#2f2a6b"/>
+            <rect x="83" y="48" width="144" height="88" rx="4" fill="#fff"/>
+            <rect x="87" y="52" width="66" height="38" rx="4" fill="#d6dcff"/>
+<path d="M104 90c0-12 6-16 16-16s16 4 16 16z" fill="#5b4de0"/><circle cx="120" cy="68" r="8" fill="#f0b48c"/><path d="M112 66a8 8 0 0 1 16 0c-4-4-12-4-16 0z" fill="#2a2a48"/>
+<g class="o_hl" style="animation-delay:0s"><rect x="87" y="52" width="66" height="38" rx="4" fill="none" stroke="#6c3cf5" stroke-width="3"/><rect class="o_bar" x="138" y="78" width="2.500" height="8" rx="1" fill="#6c3cf5"/><rect class="o_bar" style="animation-delay:.15s" x="142" y="78" width="2.500" height="8" rx="1" fill="#6c3cf5"/><rect class="o_bar" style="animation-delay:.3s" x="146" y="78" width="2.500" height="8" rx="1" fill="#6c3cf5"/></g>
+<rect x="157" y="52" width="66" height="38" rx="4" fill="#ffe3bd"/>
+<path d="M174 90c0-12 6-16 16-16s16 4 16 16z" fill="#f6a623"/><circle cx="190" cy="68" r="8" fill="#c98d63"/><path d="M182 66a8 8 0 0 1 16 0c-4-4-12-4-16 0z" fill="#3a2a22"/>
+<g class="o_hl" style="animation-delay:2s"><rect x="157" y="52" width="66" height="38" rx="4" fill="none" stroke="#6c3cf5" stroke-width="3"/><rect class="o_bar" x="208" y="78" width="2.500" height="8" rx="1" fill="#6c3cf5"/><rect class="o_bar" style="animation-delay:.15s" x="212" y="78" width="2.500" height="8" rx="1" fill="#6c3cf5"/><rect class="o_bar" style="animation-delay:.3s" x="216" y="78" width="2.500" height="8" rx="1" fill="#6c3cf5"/></g>
+<rect x="87" y="94" width="66" height="38" rx="4" fill="#d3f0e3"/>
+<path d="M104 132c0-12 6-16 16-16s16 4 16 16z" fill="#2fa59d"/><circle cx="120" cy="110" r="8" fill="#f4c6a8"/><path d="M112 108a8 8 0 0 1 16 0c-4-4-12-4-16 0z" fill="#1f1a1a"/>
+<g class="o_hl" style="animation-delay:4s"><rect x="87" y="94" width="66" height="38" rx="4" fill="none" stroke="#6c3cf5" stroke-width="3"/><rect class="o_bar" x="138" y="120" width="2.500" height="8" rx="1" fill="#6c3cf5"/><rect class="o_bar" style="animation-delay:.15s" x="142" y="120" width="2.500" height="8" rx="1" fill="#6c3cf5"/><rect class="o_bar" style="animation-delay:.3s" x="146" y="120" width="2.500" height="8" rx="1" fill="#6c3cf5"/></g>
+<rect x="157" y="94" width="66" height="38" rx="4" fill="#f8d3e8"/>
+<path d="M174 132c0-12 6-16 16-16s16 4 16 16z" fill="#f0424d"/><circle cx="190" cy="110" r="8" fill="#a8683f"/><path d="M182 108a8 8 0 0 1 16 0c-4-4-12-4-16 0z" fill="#2a2a48"/>
+<g class="o_hl" style="animation-delay:6s"><rect x="157" y="94" width="66" height="38" rx="4" fill="none" stroke="#6c3cf5" stroke-width="3"/><rect class="o_bar" x="208" y="120" width="2.500" height="8" rx="1" fill="#6c3cf5"/><rect class="o_bar" style="animation-delay:.15s" x="212" y="120" width="2.500" height="8" rx="1" fill="#6c3cf5"/><rect class="o_bar" style="animation-delay:.3s" x="216" y="120" width="2.500" height="8" rx="1" fill="#6c3cf5"/></g>
+
+            <rect x="145" y="144" width="20" height="6" fill="#2f2a6b"/><rect x="100" y="150" width="110" height="7" rx="3.500" fill="#4a2fc4"/>
+            <!-- chat bubble -->
+            <g class="o_b1"><path d="M22 38h28a8 8 0 0 1 8 8v12a8 8 0 0 1-8 8h-16l-8 8 1-8h-5a8 8 0 0 1-8-8V46a8 8 0 0 1 8-8z" fill="#6b4df0"/><g class="o_dt"><circle cx="28" cy="52" r="2" fill="#fff"/><circle cx="36" cy="52" r="2" fill="#fff"/><circle cx="44" cy="52" r="2" fill="#fff"/></g></g>
+            <!-- calendar card -->
+            <g class="o_fl"><rect x="14" y="96" width="40" height="40" rx="6" fill="#fff" stroke="#2f2a6b" stroke-width="2"/><path d="M14 102a6 6 0 0 1 6-6h28a6 6 0 0 1 6 6v6H14z" fill="#f0424d"/><rect x="21" y="115" width="22" height="3" rx="1.500" fill="#cfd0e6"/><rect x="21" y="122" width="14" height="3" rx="1.500" fill="#cfd0e6"/><circle class="o_ok" cx="45" cy="127" r="4" fill="#2fa59d"/></g>
+            <!-- camera + mic badges -->
+            <g class="o_fl" style="animation-delay:-1.5s"><rect x="254" y="44" width="40" height="28" rx="8" fill="#fff" stroke="#2f2a6b" stroke-width="2"/><rect x="262" y="52" width="16" height="12" rx="2" fill="#6c3cf5"/><polygon points="279,56 287,52 287,64 279,60" fill="#6c3cf5"/></g>
+            <g class="o_fl" style="animation-delay:-3s"><circle cx="274" cy="112" r="16" fill="#fff" stroke="#2f2a6b" stroke-width="2"/><rect x="270" y="102" width="8" height="14" rx="4" fill="#6c3cf5"/><path d="M266 112a8 8 0 0 0 16 0M274 120v4" fill="none" stroke="#6c3cf5" stroke-width="1.800" stroke-linecap="round"/></g>
+            <!-- reactions -->
+            <path class="o_up" d="M150 66c-8-6-12-10-12-15a6 6 0 0 1 12-2 6 6 0 0 1 12 2c0 5-4 9-12 15z" fill="#f0424d"/>
+            <path class="o_up" style="animation-delay:1.5s" d="M196 66c-8-6-12-10-12-15a6 6 0 0 1 12-2 6 6 0 0 1 12 2c0 5-4 9-12 15z" fill="#f48fb1"/>
+            <!-- join button -->
+            <rect class="o_ring" x="115" y="170" width="80" height="24" rx="12" fill="none" stroke="#6c3cf5" stroke-width="2"/>
+            <g class="o_jn"><rect x="115" y="170" width="80" height="24" rx="12" fill="#5b50d8"/><text x="155" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Lato,Arial,sans-serif">Join now</text></g>
+          </svg>
+        </div>
+      </div>
+      <div class="phone" aria-hidden="true">
+        <div class="ph"><span class="bk">7</span><span class="av"></span><div>Toyosi Bello<small>online</small></div></div>
+        <div class="msgs">
+          <span class="day">Yesterday</span>
+          <div class="m">How are you?<em>12:00 ✓✓</em></div>
+          <div class="m rp"><b>You</b>How are you?</div>
+          <div class="m">Am good.<em>12:45</em></div>
+          <span class="day">Today</span>
+          <div class="m">Do you have the economics syllabus sent on the general buzz last week?<em>13:07</em></div>
+          <div class="m">I was told to speak to you since you are the course assistant lead<em>14:12</em></div>
+          <div class="m me">I will check<em>15:00 ✓✓</em></div>
+          <div class="m">I dont have it, but you can ask esther. She is course reprsentative<em>15:00 ✓✓</em></div>
+        </div>
+        <div class="in2">+ <span></span> ◉ ◎ ♪</div>
+      </div>
+      <div class="fade"></div>
+    </div>
+  </section>
+  <section class="feat" aria-label="Highlights">
+    <article class="fc">
+      <svg viewBox="0 0 160 140" role="img" aria-label="Animated sound waves inside a diamond">
+        <rect x="42" y="32" width="76" height="76" rx="10" transform="rotate(45 80 70)" fill="none" stroke="#c4c4cc" stroke-width="1.5"/>
+        <g class="wv">
+          <path class="w w1" d="M18 70C48 14 112 14 142 70C112 126 48 126 18 70Z" fill="#4f46e5"/>
+          <path class="w w2" d="M24 70C58 28 104 28 136 70C104 112 58 112 24 70Z" fill="#ec4cf0"/>
+          <path class="w w3" d="M12 70C40 44 120 44 148 70C120 96 40 96 12 70Z" fill="#22c3d6"/>
+        </g>
+      </svg>
+      <h3>Talk to Zedu AI</h3>
+      <p>Ask a question out loud and get an answer in seconds.</p>
+    </article>
+    <article class="fc">
+      <svg viewBox="0 0 200 140" role="img" aria-label="Animated paper plane flying past clouds">
+        <g class="cl c1"><circle cx="150" cy="96" r="12" fill="#d9dadf"/><circle cx="166" cy="92" r="9" fill="#d9dadf"/><rect x="132" y="96" width="50" height="12" rx="6" fill="#d9dadf"/></g>
+        <g class="cl c2"><circle cx="36" cy="40" r="10" fill="#e6e6ea"/><circle cx="50" cy="36" r="8" fill="#e6e6ea"/><rect x="22" y="40" width="42" height="10" rx="5" fill="#e6e6ea"/></g>
+        <g class="pl">
+          <polygon points="30,58 154,34 100,102 72,80" fill="#5b66f7"/>
+          <polygon points="30,58 154,34 72,80" fill="#4a50d8"/>
+          <polygon points="72,80 82,104 62,90" fill="#3a3fb0"/>
+        </g>
+      </svg>
+      <h3>Send messages in one tap</h3>
+      <p>Share updates with your whole cohort instantly.</p>
+    </article>
+    <article class="fc">
+      <svg viewBox="0 0 160 140" role="img" aria-label="Animated gradient orb with a stop button">
+        <defs><linearGradient id="og" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f3bff"/><stop offset=".5" stop-color="#e84cf0"/><stop offset="1" stop-color="#3bb6ff"/></linearGradient></defs>
+        <circle class="ring" cx="80" cy="70" r="46" fill="none" stroke="#6c3cf5" stroke-width="2"/>
+        <circle class="orb" cx="80" cy="70" r="46" fill="url(#og)"/>
+        <rect class="sq" x="66" y="56" width="28" height="28" rx="8" fill="#fff"/>
+      </svg>
+      <h3>Listening to you</h3>
+      <p>Tap once to start or stop recording a message.</p>
+    </article>
+    <article class="fc">
+      <svg class="call" viewBox="0 0 280 210" role="img" aria-label="Animated video call with eight participants and a person at a desk">
+        <g><rect x="6" y="6" width="62" height="46" rx="5" fill="#2fa59d"/>
+<path d="M17 52c0-14 8-20 20-20s20 6 20 20z" fill="#f26fa8"/><circle cx="37" cy="26" r="9" fill="#f2b8a0"/>
+<path d="M28 24a9 9 0 0 1 18 0c-5-3-13-3-18 0z" fill="#2a2024"/>
+<rect class="act" style="animation-delay:0s" x="6" y="6" width="62" height="46" rx="5" fill="none" stroke="#fff" stroke-width="3"/></g>
+<g><rect x="74" y="6" width="62" height="46" rx="5" fill="#4b4bd6"/>
+<path d="M85 52c0-14 8-20 20-20s20 6 20 20z" fill="#2fa59d"/><circle cx="105" cy="26" r="9" fill="#f0c27a"/>
+<path d="M96 24a9 9 0 0 1 18 0c-5-3-13-3-18 0z" fill="#2a2024"/>
+<rect class="act" style="animation-delay:1s" x="74" y="6" width="62" height="46" rx="5" fill="none" stroke="#fff" stroke-width="3"/></g>
+<g><rect x="142" y="6" width="62" height="46" rx="5" fill="#6c9cf2"/>
+<path d="M153 52c0-14 8-20 20-20s20 6 20 20z" fill="#4b2a7a"/><circle cx="173" cy="26" r="9" fill="#c98d63"/>
+<path d="M164 24a9 9 0 0 1 18 0c-5-3-13-3-18 0z" fill="#2a2024"/>
+<rect class="act" style="animation-delay:2s" x="142" y="6" width="62" height="46" rx="5" fill="none" stroke="#fff" stroke-width="3"/></g>
+<g><rect x="210" y="6" width="62" height="46" rx="5" fill="#e8b43a"/>
+<path d="M221 52c0-14 8-20 20-20s20 6 20 20z" fill="#6b3fb0"/><circle cx="241" cy="26" r="9" fill="#e6a88c"/>
+<path d="M232 24a9 9 0 0 1 18 0c-5-3-13-3-18 0z" fill="#2a2024"/>
+<rect class="act" style="animation-delay:3s" x="210" y="6" width="62" height="46" rx="5" fill="none" stroke="#fff" stroke-width="3"/></g>
+<g><rect x="6" y="58" width="62" height="46" rx="5" fill="#cfcfd2"/>
+<path d="M17 104c0-14 8-20 20-20s20 6 20 20z" fill="#9b5fd0"/><circle cx="37" cy="78" r="9" fill="#f2b8a0"/>
+<path d="M28 76a9 9 0 0 1 18 0c-5-3-13-3-18 0z" fill="#2a2024"/>
+<rect class="act" style="animation-delay:4s" x="6" y="58" width="62" height="46" rx="5" fill="none" stroke="#fff" stroke-width="3"/></g>
+<g><rect x="74" y="58" width="62" height="46" rx="5" fill="#2f46e0"/>
+<path d="M85 104c0-14 8-20 20-20s20 6 20 20z" fill="#f2f2f2"/><circle cx="105" cy="78" r="9" fill="#f0c27a"/>
+<path d="M96 76a9 9 0 0 1 18 0c-5-3-13-3-18 0z" fill="#2a2024"/>
+<rect class="act" style="animation-delay:5s" x="74" y="58" width="62" height="46" rx="5" fill="none" stroke="#fff" stroke-width="3"/></g>
+<g><rect x="142" y="58" width="62" height="46" rx="5" fill="#e5545a"/>
+<path d="M153 104c0-14 8-20 20-20s20 6 20 20z" fill="#1f3b6f"/><circle cx="173" cy="78" r="9" fill="#a8683f"/>
+<path d="M164 76a9 9 0 0 1 18 0c-5-3-13-3-18 0z" fill="#2a2024"/>
+<rect class="act" style="animation-delay:6s" x="142" y="58" width="62" height="46" rx="5" fill="none" stroke="#fff" stroke-width="3"/></g>
+<g><rect x="210" y="58" width="62" height="46" rx="5" fill="#2f6fb5"/>
+<path d="M221 104c0-14 8-20 20-20s20 6 20 20z" fill="#c0453f"/><circle cx="241" cy="78" r="9" fill="#e6a88c"/>
+<path d="M232 76a9 9 0 0 1 18 0c-5-3-13-3-18 0z" fill="#2a2024"/>
+<rect class="act" style="animation-delay:7s" x="210" y="58" width="62" height="46" rx="5" fill="none" stroke="#fff" stroke-width="3"/></g>
+
+        <path d="M20 200h240" stroke="#cfd0d8" stroke-width="2"/>
+        <rect x="106" y="124" width="68" height="46" rx="4" fill="#eef0fb" stroke="#222" stroke-width="3"/>
+        <path d="M50 200v-30l14-16" fill="none" stroke="#26c6f5" stroke-width="3" stroke-linecap="round"/><path d="M62 152l14 4-6 9z" fill="#26c6f5"/>
+        <rect x="198" y="188" width="38" height="6" fill="#e24d4d"/><rect x="202" y="182" width="34" height="6" fill="#4b4bd6"/><rect x="198" y="176" width="38" height="6" fill="#f6b800"/><rect x="204" y="170" width="32" height="6" fill="#2fa59d"/>
+        <path class="leaf" d="M254 200c-9-20-5-38 6-46 3 15 7 30-6 46z" fill="#cdd7f4"/>
+        <path d="M104 200c0-30 14-44 36-44s36 14 36 44z" fill="#f6b800"/>
+        <g class="turn"><circle cx="140" cy="142" r="15" fill="#1f1a24"/></g>
+        <path d="M122 200c0-12 8-18 18-18s18 6 18 18z" fill="#222"/>
+      </svg>
+      <h3>Meet with your whole class</h3>
+      <p>See everyone at once in one shared call.</p>
+    </article>
+  </section>
+</main>
+</body>
+</html>
